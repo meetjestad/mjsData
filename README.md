@@ -20,6 +20,18 @@ http://meetjestad.net/data/handleiding.r
 
 http://ladylein.nl/R/index.html
 
+
+      ### aanpassing http://meetjestad.net/downloads/datahandleiding.pdf: 
+      pagina 9:  Haal de data op van de server van Meet je Stad
+          > data<-read.table(paste("http://meetjestad.net/data?
+            type=sensors&ids=",id,"&format=csv", sep=""), sep="\t",
+            header=T)
+      geeft: Error in scan(file = file, what = what, sep = sep, quote = quote, dec = dec,  : 
+            line 1 did not have 26 elements
+
+          verander in:
+              data<-read.table(paste("https://meetjestad.net/data/?type=sensors&ids=",id,"&format=csv&limit=10", sep=""), sep="\t", fill = TRUE, header=T)
+
 ## Meetjestad data processing in Python
 
 
